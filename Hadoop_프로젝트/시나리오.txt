@@ -1,0 +1,98 @@
+1. 성별 선호 카테고리
+select gender,  count(*)
+from crm
+group by gender;
+
+2. 성별 구매액
+select gender, sum(price), avg(price), count(*)
+from crm
+group by gender;
+
+3. 나이별 선호 카테고리
+select item_cate, sum(price), avg(price), count(*)
+from crm
+where age between 21 and 30
+group by item_cate;
+
+4. 나이별 구매액
+select sum(price), avg(price), count(*)
+from crm
+where age between 61 and 100;
+
+5. 직업별 구매액
+select job_cd, sum(price), avg(price), count(*)
+from crm
+group by job_cd;
+
+6. 지역별 판매액
+insert overwrite directory '/user/hive/region2.txt'
+select POSTAL_REGION1, sum(price), avg(price), count(*)
+from crm
+group by POSTAL_REGION1;
+
+7. 월별 고객수
+select purchase_date, item_cate, sum(price), avg(price), count(*)
+from crm
+group by purchase_date, item_cate;
+
+8. 월별 판매액
+select purchase_date, item_cate, count(distinct(cust_id))
+from crm
+group by purchase_date, item_cate;
+
+9. 카테고리별 판매액
+select item_cate, sum(price), avg(price), count(*)
+from crm
+group by item_cate;
+10. 재방문 고객, 아이템 
+
+11. 고객분포
+select distinct(cust_id), gender, job_cd, postal_region1
+from crm
+group by postal_region1;
+
+
+12. 고객수 구하기
+select count(distinct(cust_id)), gender
+from crm
+group by gender;
+
+13. 나이별 고객수
+select count(distinct(cust_id))
+from crm
+where age between 61 and 92;
+
+13. 직업별 고객수
+insert overwrite directory '/user/hive/customer6.txt'
+select postal_region1, gender, count(distinct(cust_id))
+from crm
+group by postal_region1, gender;
+
+14. 고객별 방문횟수
+insert overwrite directory '/user/hive/freq.txt'
+select cust_id, count(distinct(purchase_date))
+from crm
+group by cust_id;
+
+15. 최근 방문일자
+insert overwrite directory '/user/hive/recency.txt'
+select cust_id, max(purchase_date)
+from crm
+group by cust_id;
+
+16. 고객별 구매액
+insert overwrite directory '/user/hive/momentary.txt'
+select cust_id, sum(price)
+from crm
+group by cust_id;
+
+17. 구매액 자료
+select sum(price),max(price),min(price),avg(price)
+from crm;
+insert overwrite directory '/user/hive/freq.txt'
+>이에 대한 쿼리 결과는
+>hadoop dfs -lsr /로 확인하여 이를
+>hadoop dfs -cat '/user/hive/momentary.txt/000000_0'>>/mnt/hgfs/Temp/momentary.txt로 불러옴.
+그리고 이 파일을 워드패드로 특수부호를 쉼표로 변경하고
+이를 엑셀파일의 데이터에서 분리하여 구분자로 인식하게 하여
+처리하고 이를 그래프로 시각화 하면 됨.
