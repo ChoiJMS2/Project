@@ -1,5 +1,5 @@
 # Project
-## 1.**데이터분석을통한 범죄 건수예측 및 대책** [→ 자세히 보기](https://github.com/ChoiJMS2/Project.git)  
+## 1.**데이터분석을통한 범죄 건수예측 및 대책**   
 - 사용 언어: R
 - 작업툴: R Studio 
 - 인원: 4명  
@@ -12,7 +12,7 @@
 - 기여: 데이터 수집 및 전처리, 회귀분석  
 <br>
 
-## 2.**웹 크롤링 및 시각화** [→ 자세히 보기](https://github.com/ChoiJMS2/Project.git)  
+## 2.**웹 크롤링 및 시각화**   
 - 사용 언어: R
 - 작업툴: R Studio 
 - 인원: 개인  
@@ -21,7 +21,7 @@
   - 자유 주제로 웹 크롤링
 <br>
 
-## 3.**RFM분석을 통한 고객등급화 및 마케팅방안** [→ 자세히 보기](https://github.com/ChoiJMS2/Project.git)  
+## 3.**RFM분석을 통한 고객등급화 및 마케팅방안**  
 - 사용 언어: SQL
 - 작업툴: Hadoop Eco System - Hive 
 - 인원: 4명  
